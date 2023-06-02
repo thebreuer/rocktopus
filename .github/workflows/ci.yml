@@ -1,0 +1,32 @@
+name: Node JS CI
+
+on: 
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs: 
+
+  ci: 
+    runs-on: ubuntu-latest
+
+    steps: 
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with: 
+        node-version: 'lts/Hydrogen'
+        cache: 'npm'
+    
+    - name: Install node_modules
+      run: npm ci
+
+    - name: Run Lint
+      run: npm run eslint
+
+    - name: Run Tests
+      run: npm run test
+  
