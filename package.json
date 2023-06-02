@@ -1,0 +1,38 @@
+{
+  "name": "rocktopus",
+  "version": "1.0.0",
+  "description": "rocktopus CLI is a tool for Developers to switch between multiple Projects.",
+  "author": "Sebastian Breuer ",
+  "main": "src/rocktopus.js",
+  "bin": "bin/rocktopus.js",
+  "scripts": {
+    "start": "./bin/rocktopus.js",
+    "lint": "eslint ./*.js",
+    "lint:fix": "eslint --fix ./*.js",
+    "build": "pkg . --out-path ./dist"
+  },
+  "keywords": [
+    "CLI",
+    "workspace",
+    "jobs",
+    "developer"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "eslint-config-google": "^0.14.0",
+    "pkg": "^5.8.1"
+  },
+  "dependencies": {
+    "commander": "^10.0.1",
+    "configstore": "^3.1.5",
+    "env-paths": "^2.2.1",
+    "execa": "^5.1.1",
+    "git-url-parse": "^13.1.0",
+    "inquirer": "^8.2.5",
+    "listr": "^0.14.3",
+    "log-symbols": "^4.1.0",
+    "omelette": "^0.4.17",
+    "ora": "^5.4.1"
+  }
+}
