@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "commander": "^10.0.1",
-    "configstore": "^3.1.5",
+    "configstore": "^6.0.0",
     "env-paths": "^2.2.1",
     "execa": "^5.1.1",
     "git-url-parse": "^13.1.0",
