@@ -38,7 +38,7 @@ async function handleAddWorkspace() {
     when: !options.name,
   }, {
     name: 'repository',
-    message: 'Please enter a repository base url',
+    message: 'Please enter a repository base url. e.g git@example.com, https://example.com, rsync://git.example.com, ...',
     when: !options.repository,
   }, {
     name: 'organization',

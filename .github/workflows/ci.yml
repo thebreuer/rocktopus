@@ -1,14 +1,14 @@
 name: Node JS CI
 
 on: 
-  push:
-    branches: [main]
   pull_request:
+    branches: [main]
+  push:
     branches: [main]
 
 jobs: 
 
-  test: 
+  ci: 
     runs-on: ubuntu-latest
 
     steps: 
@@ -18,28 +18,15 @@ jobs:
     - name: Setup node
       uses: actions/setup-node@v3
       with: 
-        node-version: lts
+        node-version: 'lts/Hydrogen'
+        cache: 'npm'
     
     - name: Install node_modules
       run: npm ci
+
+    - name: Run Lint
+      run: npm run eslint
 
     - name: Run Tests
       run: npm run test
-    
-  lint:
-    runs-on: ubuntu-latest
-
-    steps: 
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with: 
-        node-version: lts
-    
-    - name: Install node_modules
-      run: npm ci
-
-    - name: Lint
-      run: npm run eslint
+  

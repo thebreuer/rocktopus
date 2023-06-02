@@ -22,8 +22,6 @@ function verbose(message, options) {
  * @param {object} options
  */
 function info(message, options) {
-  const config = mergeConfig(options);
-
   console.info(`${logSymbols.info} ${message}`);
 }
 
@@ -33,8 +31,6 @@ function info(message, options) {
  * @param {object} options
  */
 function error(message, options) {
-  const config = mergeConfig(options);
-
   console.error(`${logSymbols.error} ${message}`);
 }
 
@@ -44,8 +40,6 @@ function error(message, options) {
  * @param {object} options
  */
 function failure(message, options) {
-  const config = mergeConfig(options);
-
   console.error(`${logSymbols.failure} ${message}`);
 }
 
@@ -55,8 +49,6 @@ function failure(message, options) {
  * @param {object} options
  */
 function success(message, options) {
-  const config = mergeConfig(options);
-
   console.log(`${logSymbols.success} ${message}`);
 }
 

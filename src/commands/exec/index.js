@@ -5,6 +5,7 @@ const {join} = require('path');
 const {access} = require('fs').promises;
 const execa = require('execa');
 const ora = require('ora');
+const parse = require('json-templates');
 
 /**
  * Registers the workspace command to the program.
@@ -99,13 +100,16 @@ async function handleExecAction(project) {
  */
 async function executeJobs(jobs, meta) {
   info(`Start jobs`);
-  for (const job of jobs) {
-    const ora = ora(job.title).start();
+
+  for (let job of jobs) {
+    const jobTemplate = parse(job);
+    job = jobTemplate(meta);
+    const jobRunner = ora(job.title).start();
     try {
-      await execa(job.command, job.params);
-      ora.succeed(job.successMessage);
+      await execa(job.command, job.arguments);
+      jobRunner.succeed(`${job.title} succeeded.`);
     } catch (e) {
-      ora.fail(e.message);
+      jobRunner.fail(e.message);
     }
   }
   success(`Finished jobs on ${meta.project}`);
@@ -141,7 +145,7 @@ async function cloneRepository(workspace, project, path) {
  * @return {string}
  */
 function getGitUrl(repository, organization, project) {
-  return `git@${repository}:${organization}/${project}`;
+  return `${repository.startsWith('http') ? repository + '/' : repository + ':'}${organization == '' ? '' : organization + '/' }${project}`;
 }
 
 module.exports = {
