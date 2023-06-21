@@ -1,4 +1,4 @@
-const {detail} = require('../../lib/console/logger');
+const {detail} = require('../../lib/console/output');
 const {workspaceStore} = require('./../../store');
 
 /**

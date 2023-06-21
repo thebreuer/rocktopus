@@ -1,8 +1,8 @@
 const {program} = require('commander');
 
 const packageJson = require('../package.json');
-const {workspaceCommand, execCommand} = require('./commands');
-
+// const {workspaceCommand, execCommand, jobCommand} = require('./commands');
+const commands = require('./commands');
 /**
  * Runs rocktopus.
  */
@@ -12,12 +12,17 @@ async function run() {
       .description(packageJson.description)
       .version(packageJson.version);
 
-  workspaceCommand
+  commands.initCommand.registerInitCommand(program);
+
+  /* workspaceCommand
       .registerCommand(program);
 
   execCommand
       .registerCommand(program);
 
+  jobCommand
+      .registerCommand(program);
+*/
   await program.parseAsync();
 }
 

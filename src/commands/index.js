@@ -1,7 +1,5 @@
-const workspaceCommand = require('./workspace');
-const execCommand = require('./exec');
+const initCommand = require('./init');
 
 module.exports = {
-  workspaceCommand,
-  execCommand,
+  initCommand,
 };

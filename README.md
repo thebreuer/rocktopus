@@ -72,6 +72,31 @@ Commands:
   help [command]         display help for command
 ```
 
+## Jobs
+
+Your workspaces will give you the ability to get started. But the real magic of rocktopus are jobs.
+
+In any case, when run, rocktopus looks in your workspace for the project you want to work in and clones the repository if not present.
+
+Afterwards you can freely configure what rocktopus does with the found project using jobs. 
+
+```shell
+$ rocktopus jobs --help
+
+Usage: rocktopus jobs [options]
+
+Manage jobs inside workspaces
+
+Options:
+  -h, --help                   display help for command
+
+Commands:
+  list [options]         List jobs for a specific workspace
+  add [options]          Add a job to a workspace
+  delete [options]       Delete a job in a workspace
+  edit [options]         Edit a job in a workspace
+```
+
 ## Execution
 
 Afer configuring your workspaces you might want to get started.
@@ -91,4 +116,33 @@ Options:
   -v, --verbose                Verbose mode
   --no-color                   Output without colors
   -h, --help                   display help for command
+```
+
+# Configuration
+
+In case you don't want to use the CLI to configure rocktopus you can do it manually in the rocktopus config file, found in `$XDG_CONFIG_HOME/rocktopus/config.json`. If `$XDG_CONFIG_HOME` is not set, the `~/.config` directory is used to store the rocktopus configuration.
+
+## Example
+```json
+{
+    "default": "my-projects",
+    "workspaces": {
+        "my-projects": {
+            "slug": "my-projects",
+            "name": "my-projects",
+            "repository": "https://github.com",
+            "organization": "my-organization",
+            "dir": "~/Workspace",
+            "jobs": [
+                {
+                  "title": "Open in VSCode",
+                  "command": "code",
+                  "arguments": [
+                      "{{projectFullPath}}"
+                  ]
+                }
+            ]
+        }
+    }
+}
 ```

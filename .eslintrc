@@ -20,6 +20,7 @@
                 "ignoreStrings": true,
                 "ignoreTemplateLiterals": true
             }
-        ]
+        ],
+        "linebreak-style": 0
     }
 }

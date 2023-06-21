@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const {verbose, info, success, detail} = require('../../lib/console/logger');
+const {verbose, info, success, detail} = require('../../lib/console/output');
 const {workspaceStore} = require('../../store');
 
 /**

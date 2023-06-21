@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
-const {verbose, success, info} = require('../../lib/console/logger');
-const {workspaceStore} = require('./../../store');
+const {verbose, success, info} = require('../../lib/console/output');
+const {workspaceStore} = require('../../store');
 const {join} = require('path');
 const {access} = require('fs').promises;
 const execa = require('execa');
