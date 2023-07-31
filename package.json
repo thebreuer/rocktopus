@@ -31,7 +31,7 @@
     "env-paths": "^2.2.1",
     "execa": "^5.1.1",
     "git-url-parse": "^13.1.0",
-    "inquirer": "^8.2.5",
+    "inquirer": "^9.2.9",
     "json-templates": "^4.3.0",
     "listr": "^0.14.3",
     "log-symbols": "^4.1.0",
